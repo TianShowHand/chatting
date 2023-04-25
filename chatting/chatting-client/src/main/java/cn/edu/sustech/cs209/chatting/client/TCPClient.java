@@ -1,11 +1,11 @@
 package cn.edu.sustech.cs209.chatting.client;
 
+import com.google.gson.Gson;
+
 import java.io.*;
 import java.net.*;
 import java.util.HashMap;
 import java.util.Map;
-
-import com.google.gson.Gson;
 
 public class TCPClient {
     private static final long serialVersionUID = 1L;

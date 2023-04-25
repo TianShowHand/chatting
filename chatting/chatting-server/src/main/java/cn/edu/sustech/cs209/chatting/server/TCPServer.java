@@ -11,21 +11,13 @@ import java.util.List;
 import javax.swing.*;
 
 public class TCPServer extends JFrame {
-    /**
-     *
-     */
     private static final long serialVersionUID = 1L;
     private ServerSocket ss = null;
     private boolean bStart = false;
-
     private JTextArea taContent = new JTextArea();
-
     private int index = 0;
-
     List<Client> clients = new ArrayList<>();
-
     List<String> userlist;
-    Thread thread;
 
     public void launchFrame() {
         taContent.setEditable(false);
@@ -71,10 +63,8 @@ public class TCPServer extends JFrame {
     private class Client implements Runnable {
         DataInputStream dis = null;
         DataOutputStream dos = null;
-
-        Socket s = null;
-        boolean bStart = false;
-
+        Socket s;
+        boolean bStart;
         String name;
 
         Client(Socket s) {
@@ -181,7 +171,5 @@ public class TCPServer extends JFrame {
                 }
             }
         }
-
-
     }
 }

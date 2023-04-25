@@ -23,14 +23,13 @@ public class Controller implements Initializable {
     ListView<String> chatList;
     @FXML
     ListView<Message> chatContentList;
-    Map<String, ListView<Message>> chatContent = new HashMap<>();
     @FXML
     TextArea inputArea;
     @FXML
     Label currentUsername;
     @FXML
     Label currentOnlineCnt;
-
+    Map<String, ListView<Message>> chatContent = new HashMap<>();
     String username;
     String another;
     TCPClient tc = new TCPClient();
@@ -38,15 +37,12 @@ public class Controller implements Initializable {
     Thread t = new Thread(new RecToServer());
     boolean aBoolean = false;
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         Dialog<String> dialog = new TextInputDialog();
         dialog.setTitle("Login");
         dialog.setHeaderText(null);
         dialog.setContentText("Username:");
-
         Optional<String> input = dialog.showAndWait();
         if (input.isPresent() && !input.get().isEmpty()) {
             /*
@@ -75,7 +71,6 @@ public class Controller implements Initializable {
             System.out.println("Invalid username " + input + ", exiting");
             Platform.exit();
         }
-
         chatContentList.setCellFactory(new MessageCellFactory());
     }
 
